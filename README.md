@@ -1,3 +1,8 @@
+Forked to make it working on raspbian stretch with B+
+=====================================================
+19, Jan, 2019
+
+
 openalpr
 ========
 
