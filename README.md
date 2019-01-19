@@ -4,6 +4,7 @@ Forked to test on Raspbian Stretch with Raspberry3 B+
 
 Testing Plan
 ------------
+### CLI: will follow the test of guide
 ### Build simple test code
 - C/C++ on QT
 - 1'st step: JPEG image
@@ -17,7 +18,7 @@ Install references
 
 Versions: As of 19/Jan/2019
 ---------
-- Raspbian imag: 2018-11-13-raspbian-stretch-full.zip
+- Raspbian image: 2018-11-13-raspbian-stretch-full.zip
 - tesseract verion: 4.0.0-143-g7a83
    - Leptonica-1.74.1
 - OpenCV version: 3.4
@@ -51,7 +52,7 @@ OpenCV install
 ```
     cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_NEW_PYTHON_SUPPORT=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D BUILD_EXAMPLES=ON ..
 ```
-#####  make: didn't use -j option as it hung up.
+#####  make: didn't use -j option as it make system hung up.
 ```
     make
 ```
