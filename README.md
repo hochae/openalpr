@@ -2,6 +2,12 @@ Forked to make it working on raspbian stretch with B+
 =====================================================
 19, Jan, 2019
 
+Will follow the guide of https://blog.vinczejanos.info/2016/08/31/install-openalpr-on-raspberry-pi-3/
+-----------------------------------------------------------------------------------------------------
+- Raspbian imag: 2018-11-13-raspbian-stretch-full.zip
+- tesseract verion:
+- OpenCV version:
+
 
 openalpr
 ========
