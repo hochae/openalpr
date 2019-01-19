@@ -1,15 +1,60 @@
-Forked to make it working on raspbian stretch with B+
+Forked to test on Raspbian Stretch with Raspberry3 B+
 =====================================================
-19, Jan, 2019
+@19, Jan, 2019
 
-Will follow the guide of https://blog.vinczejanos.info/2016/08/31/install-openalpr-on-raspberry-pi-3/
------------------------------------------------------------------------------------------------------
+Testing Plan
+------------
+### Build simple test code
+- C/C++ on QT
+- 1'st step: JPEG image
+- 2'nd step: Captured image from USB camera with v4l
+   - Check the processing time on Raspi
+
+Install references
+------------------
+- Install guide: https://blog.vinczejanos.info/2016/08/31/install-openalpr-on-raspberry-pi-3/
+- OpenCV guide: https://www.learnopencv.com/install-opencv-4-on-raspberry-pi/
+
+Versions: As of 19/Jan/2019
+---------
 - Raspbian imag: 2018-11-13-raspbian-stretch-full.zip
 - tesseract verion: 4.0.0-143-g7a83
--- Leptonica-1.74.1
+   - Leptonica-1.74.1
 - OpenCV version: 3.4
 
---- As of 19/Jan/2019
+Raspbian Stretch install
+------------------------
+- Downloaded the full desktop version
+
+OpenCV install
+--------------
+### Cloned the 3.4 branch instead of master
+- Couldn't make a successful build with 4.0 version, which is master version.
+- Decided to test with 3.4 version first and then try master again.
+
+#### Remove some packages as the ref
+#### Didn't specify the install directory and let the working directory /usr/local/src as the guide.
+#### Went throgh the steps to 3
+#### Step 4: Download OpenCV and OpenCV extra modules
+```
+    cd /usr/local/src
+    git clone --branch 3.4 https://github.com/opencv/opencv.git
+    git clone --branch 3.4 https://github.com/opencv/opencv_contrib.git
+```
+#### Step 5: 
+```
+    cd opencv
+    mkdir build
+    cd build
+```
+#####  cmake
+```
+    cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_NEW_PYTHON_SUPPORT=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D BUILD_EXAMPLES=ON ..
+```
+#####  make: didn't use -j option as it hung up.
+```
+    make
+```
 
 --------
 openalpr
