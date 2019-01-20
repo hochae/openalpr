@@ -14,14 +14,16 @@ Testing Plan
 Install references
 ------------------
 - Install guide: https://blog.vinczejanos.info/2016/08/31/install-openalpr-on-raspberry-pi-3/
-- OpenCV guide: https://www.learnopencv.com/install-opencv-4-on-raspberry-pi/
+- OpenCV guide: 
+   - https://www.learnopencv.com/install-opencv-4-on-raspberry-pi/
+   - https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/
 
 Versions: As of 19/Jan/2019
 ---------
 - Raspbian image: 2018-11-13-raspbian-stretch-full.zip
 - tesseract verion: 4.0.0-143-g7a83
    - Leptonica-1.74.1
-- OpenCV version: 3.4
+- OpenCV version: 3.4.5
 
 Raspbian Stretch install
 ------------------------
@@ -50,11 +52,20 @@ OpenCV install
 ```
 #####  cmake
 ```
-    cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_NEW_PYTHON_SUPPORT=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D BUILD_EXAMPLES=ON ..
+    cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_NEW_PYTHON_SUPPORT=ON -D INSTALL_C_EXAMPLES=OFF -D INSTALL_PYTHON_EXAMPLES=OFF -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D BUILD_EXAMPLES=OFF ..
 ```
+note: turn off the examples to save disk size. (can save over 3G)
+
 #####  make: didn't use -j option as it make system hung up.
 ```
     make
+    make install
+    ldconfig
+```
+
+##### check OpenCV version
+```
+   pkg-config --modversion opencv
 ```
 
 --------
